@@ -2,7 +2,8 @@
 
 Projeto de Banco de Dados de aplicativo de gestão de finanças que permite ao usuário monitorar seus gastos, definir metas e criar classificações para sua organização pessoal.
 
-Hugo Rocha\n
+Hugo Rocha
+
 Vinícius Spósito
 
 ## Sobre o projeto

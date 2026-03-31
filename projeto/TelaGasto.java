@@ -96,24 +96,91 @@ public class TelaGasto extends JFrame {
 
         inserirButton.addActionListener(e -> {
             try {
-                
                 Connection con = Conexao.conectar();
-                String sql = "INSERT INTO Gasto (valor, descricao, data, id_usuario, id_planejamento_financeiro, id_estabelecimento, id_categoria, id_forma_pagamento) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-                
+
+                String sql = "INSERT INTO Gasto (valor, descricao, data, id_usuario, id_planejamento, id_estabelecimento, id_categoria, id_forma_pagamento) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
                 PreparedStatement stmt = con.prepareStatement(sql);
-                
+
                 stmt.setDouble(1, Double.parseDouble(valor.getText()));
                 stmt.setString(2, descricao.getText());
-                stmt.setString(3, data.getText());
+
+                // CORRETO PARA DATA
+                stmt.setDate(3, java.sql.Date.valueOf(data.getText()));
+
                 stmt.setInt(4, Integer.parseInt(usuarioId.getText()));
                 stmt.setInt(5, Integer.parseInt(planejamentoId.getText()));
                 stmt.setInt(6, Integer.parseInt(estabelecimentoId.getText()));
                 stmt.setInt(7, Integer.parseInt(categoriaId.getText()));
                 stmt.setInt(8, Integer.parseInt(formaPagamentoId.getText()));
-                
+
                 stmt.executeUpdate();
 
                 con.close();
+
+                System.out.println("Gasto inserido!");
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
+
+        atualizarButton.addActionListener(e -> {
+            try {
+                Connection con = Conexao.conectar();
+
+                String sql = "UPDATE Gasto SET valor = ?, descricao = ?, data = ?, id_usuario = ?, id_planejamento = ?, id_estabelecimento = ?, id_categoria = ?, id_forma_pagamento = ? WHERE id_gasto = ?";
+
+                PreparedStatement ps = con.prepareStatement(sql);
+
+                String id = javax.swing.JOptionPane.showInputDialog("ID do gasto:");
+                String novo_valor = javax.swing.JOptionPane.showInputDialog("Novo valor:");
+                String nova_descricao = javax.swing.JOptionPane.showInputDialog("Nova descricao:");
+                String nova_data = javax.swing.JOptionPane.showInputDialog("Nova data:");
+                String novo_id_usuario = javax.swing.JOptionPane.showInputDialog("Novo ID usuario:");
+                String novo_id_planejamento = javax.swing.JOptionPane.showInputDialog("Novo ID planejamento:");
+                String novo_id_estabelecimento = javax.swing.JOptionPane.showInputDialog("Novo ID estabelecimento:");
+                String novo_id_categoria = javax.swing.JOptionPane.showInputDialog("Novo ID categoria:");
+                String novo_id_forma_pagamento = javax.swing.JOptionPane.showInputDialog("Novo ID forma_pagamento:");
+
+
+                ps.setString(1, novo_valor);
+                ps.setString(2, nova_descricao);
+                ps.setString(3, nova_data);
+                ps.setString(4, novo_id_usuario);
+                ps.setString(5, novo_id_planejamento);
+                ps.setString(6, novo_id_estabelecimento);
+                ps.setString(7, novo_id_categoria);
+                ps.setString(8, novo_id_forma_pagamento);
+                ps.setInt(9, Integer.parseInt(id));
+
+                ps.executeUpdate();
+
+                con.close();
+
+                System.out.println("Gasto atualizado!");
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
+
+        deletarButton.addActionListener(e -> {
+            try {
+                Connection con = Conexao.conectar();
+
+                String sql = "DELETE FROM Gasto WHERE id_gasto = ?";
+
+                PreparedStatement ps = con.prepareStatement(sql);
+
+                String id = javax.swing.JOptionPane.showInputDialog("ID do gasto:");
+                ps.setInt(1, Integer.parseInt(id));
+
+                ps.executeUpdate();
+
+                con.close();
+
+                System.out.println("Gasto deletado!");
 
             } catch (Exception ex) {
                 ex.printStackTrace();

@@ -10,7 +10,6 @@ public class TelaUsuario extends JFrame {
     
     private JTextField telaNome;
     private JTextField telaSenha;
-    private JTextField telaData_cadastro;
 
     public TelaUsuario() {
 
@@ -33,13 +32,6 @@ public class TelaUsuario extends JFrame {
         telaSenha.setBounds(50, 100, 200, 30);
         add(telaSenha);
 
-        JLabel labelData_cadastro = new JLabel("Data de Cadastro:");
-        labelData_cadastro.setBounds(50, 130, 100, 30);
-        add(labelData_cadastro);
-        telaData_cadastro = new JTextField();
-        telaData_cadastro.setBounds(50, 150, 200, 30);
-        add(telaData_cadastro);
-
         JButton inserirButton = new JButton("Inserir");
         inserirButton.setBounds(50, 200, 100, 30);
         add(inserirButton);
@@ -53,30 +45,77 @@ public class TelaUsuario extends JFrame {
         add(atualizarButton);
 
         inserirButton.addActionListener(e -> {
-
             try {
-                
                 Connection con = Conexao.conectar();
                 String nome = telaNome.getText();
                 String senha = telaSenha.getText();
-                String dataCadastro = telaData_cadastro.getText();
 
-                String sql = "INSERT INTO Usuario (nome, senha, data_cadastro) VALUES (?, ?, ?)";
+                String sql = "INSERT INTO Usuario (nome, senha) VALUES (?, ?)";
 
                 PreparedStatement ps = con.prepareStatement(sql);
 
                 ps.setString(1, nome);
                 ps.setString(2, senha);
-                ps.setString(3, dataCadastro);
 
                 ps.executeUpdate();
 
                 con.close();
 
+                System.out.println("Usuário inserido!");
+
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
 
+        });
+
+        atualizarButton.addActionListener(e -> {
+            try {
+                Connection con = Conexao.conectar();
+
+                String sql = "UPDATE Usuario SET nome = ?, senha = ? WHERE id_usuario = ?";
+
+                PreparedStatement ps = con.prepareStatement(sql);
+
+                String id = javax.swing.JOptionPane.showInputDialog("ID do usuário:");
+                String novo_nome = javax.swing.JOptionPane.showInputDialog("Novo Nome:");
+                String nova_senha = javax.swing.JOptionPane.showInputDialog("Nova Senha:");
+
+                ps.setString(1, novo_nome);
+                ps.setString(2, nova_senha);
+                ps.setInt(3, Integer.parseInt(id));
+
+                ps.executeUpdate();
+
+                con.close();
+
+                System.out.println("Usuário atualizado!");
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        });
+
+        deletarButton.addActionListener(e -> {
+            try {
+                Connection con = Conexao.conectar();
+
+                String sql = "DELETE FROM Usuario WHERE id_usuario = ?";
+
+                PreparedStatement ps = con.prepareStatement(sql);
+
+                String id = javax.swing.JOptionPane.showInputDialog("ID do usuário:");
+                ps.setInt(1, Integer.parseInt(id));
+
+                ps.executeUpdate();
+
+                con.close();
+
+                System.out.println("Usuário deletado!");
+
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         });
 
     }

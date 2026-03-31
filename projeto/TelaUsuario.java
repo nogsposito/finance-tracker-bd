@@ -67,8 +67,12 @@ public class TelaUsuario extends JFrame {
 
                 ps.setString(1, nome);
                 ps.setString(2, senha);
-
                 ps.setString(3, dataCadastro);
+
+                ps.executeUpdate();
+
+                con.close();
+
             } catch (Exception ex) {
                 ex.printStackTrace();
             }

@@ -1,14 +1,13 @@
 package view;
 
+import dao.GastoDAO;
+import model.Gasto;
 import util.Conexao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
+import javax.swing.*;
 
 public class TelaGasto extends JFrame {
 
@@ -26,7 +25,7 @@ public class TelaGasto extends JFrame {
 
     public TelaGasto() {
         setTitle("Tela de Gasto");
-        setSize(400, 300);
+        setSize(400, 650);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
 
@@ -100,94 +99,81 @@ public class TelaGasto extends JFrame {
 
         inserirButton.addActionListener(e -> {
             try {
-                Connection con = Conexao.conectar();
+                // Monta o objeto Gasto lendo os campos da tela
+                Gasto novoGasto = new Gasto(
+                        Double.parseDouble(valor.getText()),
+                        descricao.getText(),
+                        java.sql.Date.valueOf(data.getText()), // Data no formato AAAA-MM-DD
+                        Integer.parseInt(usuarioId.getText()),
+                        Integer.parseInt(planejamentoId.getText()),
+                        Integer.parseInt(estabelecimentoId.getText()),
+                        Integer.parseInt(categoriaId.getText()),
+                        Integer.parseInt(formaPagamentoId.getText())
+                );
 
-                String sql = "INSERT INTO Gasto (valor, descricao, data, id_usuario, id_planejamento, id_estabelecimento, id_categoria, id_forma_pagamento) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                // Envia para o DAO salvar
+                GastoDAO dao = new GastoDAO();
+                dao.inserir(novoGasto);
 
-                PreparedStatement stmt = con.prepareStatement(sql);
-
-                stmt.setDouble(1, Double.parseDouble(valor.getText()));
-                stmt.setString(2, descricao.getText());
-
-                // CORRETO PARA DATA
-                stmt.setDate(3, java.sql.Date.valueOf(data.getText()));
-
-                stmt.setInt(4, Integer.parseInt(usuarioId.getText()));
-                stmt.setInt(5, Integer.parseInt(planejamentoId.getText()));
-                stmt.setInt(6, Integer.parseInt(estabelecimentoId.getText()));
-                stmt.setInt(7, Integer.parseInt(categoriaId.getText()));
-                stmt.setInt(8, Integer.parseInt(formaPagamentoId.getText()));
-
-                stmt.executeUpdate();
-
-                con.close();
-
-                System.out.println("Gasto inserido!");
+                JOptionPane.showMessageDialog(this, "Gasto inserido com sucesso!");
+                valor.setText("");
+                descricao.setText("");
+                data.setText("");
+                usuarioId.setText("");
+                planejamentoId.setText("");
+                estabelecimentoId.setText("");
+                categoriaId.setText("");
+                formaPagamentoId.setText("");
 
             } catch (Exception ex) {
-                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Erro: Verifique se todos os IDs numéricos e a Data (AAAA-MM-DD) estão preenchidos corretamente!\n" + ex.getMessage());
             }
         });
 
         atualizarButton.addActionListener(e -> {
             try {
-                Connection con = Conexao.conectar();
+                String idStr = JOptionPane.showInputDialog("ID do gasto a atualizar:");
+                if (idStr != null && !idStr.trim().isEmpty()) {
 
-                String sql = "UPDATE Gasto SET valor = ?, descricao = ?, data = ?, id_usuario = ?, id_planejamento = ?, id_estabelecimento = ?, id_categoria = ?, id_forma_pagamento = ? WHERE id_gasto = ?";
+                    // Lendo os novos dados pelos pop-ups e convertendo
+                    double v = Double.parseDouble(JOptionPane.showInputDialog("Novo valor:"));
+                    String d = JOptionPane.showInputDialog("Nova descricao:");
+                    java.sql.Date dt = java.sql.Date.valueOf(JOptionPane.showInputDialog("Nova data (AAAA-MM-DD):"));
+                    int uId = Integer.parseInt(JOptionPane.showInputDialog("Novo ID usuario:"));
+                    int pId = Integer.parseInt(JOptionPane.showInputDialog("Novo ID planejamento:"));
+                    int eId = Integer.parseInt(JOptionPane.showInputDialog("Novo ID estabelecimento:"));
+                    int cId = Integer.parseInt(JOptionPane.showInputDialog("Novo ID categoria:"));
+                    int fId = Integer.parseInt(JOptionPane.showInputDialog("Novo ID forma_pagamento:"));
 
-                PreparedStatement ps = con.prepareStatement(sql);
+                    // Cria o Gasto
+                    Gasto gastoAtualizado = new Gasto(v, d, dt, uId, pId, eId, cId, fId);
+                    gastoAtualizado.setId(Integer.parseInt(idStr)); // Seta o ID a ser atualizado
 
-                String id = javax.swing.JOptionPane.showInputDialog("ID do gasto:");
-                String novo_valor = javax.swing.JOptionPane.showInputDialog("Novo valor:");
-                String nova_descricao = javax.swing.JOptionPane.showInputDialog("Nova descricao:");
-                String nova_data = javax.swing.JOptionPane.showInputDialog("Nova data:");
-                String novo_id_usuario = javax.swing.JOptionPane.showInputDialog("Novo ID usuario:");
-                String novo_id_planejamento = javax.swing.JOptionPane.showInputDialog("Novo ID planejamento:");
-                String novo_id_estabelecimento = javax.swing.JOptionPane.showInputDialog("Novo ID estabelecimento:");
-                String novo_id_categoria = javax.swing.JOptionPane.showInputDialog("Novo ID categoria:");
-                String novo_id_forma_pagamento = javax.swing.JOptionPane.showInputDialog("Novo ID forma_pagamento:");
+                    // Executa o DAO
+                    GastoDAO dao = new GastoDAO();
+                    dao.atualizar(gastoAtualizado);
 
-
-                ps.setString(1, novo_valor);
-                ps.setString(2, nova_descricao);
-                ps.setString(3, nova_data);
-                ps.setString(4, novo_id_usuario);
-                ps.setString(5, novo_id_planejamento);
-                ps.setString(6, novo_id_estabelecimento);
-                ps.setString(7, novo_id_categoria);
-                ps.setString(8, novo_id_forma_pagamento);
-                ps.setInt(9, Integer.parseInt(id));
-
-                ps.executeUpdate();
-
-                con.close();
-
-                System.out.println("Gasto atualizado!");
-
+                    JOptionPane.showMessageDialog(this, "Gasto atualizado!");
+                }
             } catch (Exception ex) {
-                ex.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Erro ao atualizar. Preencha os campos corretamente: " + ex.getMessage());
             }
         });
 
         deletarButton.addActionListener(e -> {
             try {
-                Connection con = Conexao.conectar();
+                String idStr = JOptionPane.showInputDialog("ID do gasto para deletar:");
+                if (idStr != null && !idStr.trim().isEmpty()) {
+                    int id = Integer.parseInt(idStr);
 
-                String sql = "DELETE FROM Gasto WHERE id_gasto = ?";
+                    // CORREÇÃO: Usar GastoDAO em vez de UsuarioDAO
+                    GastoDAO dao = new GastoDAO();
+                    dao.deletar(id);
 
-                PreparedStatement ps = con.prepareStatement(sql);
-
-                String id = javax.swing.JOptionPane.showInputDialog("ID do gasto:");
-                ps.setInt(1, Integer.parseInt(id));
-
-                ps.executeUpdate();
-
-                con.close();
-
-                System.out.println("Gasto deletado!");
-
+                    JOptionPane.showMessageDialog(null, "Gasto deletado!");
+                }
             } catch (Exception ex) {
-                ex.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Erro: " + ex.getMessage());
             }
         });
 

@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4faa991c-bfb5-4d0e-bf91-76653a9876b0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projeto/Conexao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/Conexao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projeto/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projeto/TelaGasto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/TelaGasto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projeto/TelaUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/TelaUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/GastoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/GastoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Gasto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Gasto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/TelaGasto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/TelaGasto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/GastoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/GastoDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Gasto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Gasto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/TelaGasto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/TelaGasto.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +48,7 @@
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
@@ -92,7 +97,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1777129061956</updated>
-      <workItem from="1777129065365" duration="9321000" />
+      <workItem from="1777129065365" duration="11370000" />
     </task>
     <servers />
   </component>

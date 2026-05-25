@@ -19,12 +19,12 @@ DELIMITER ;
 
 CREATE TABLE RegistroEstouro (
      id_planejamento INTEGER,
-     id_gasto_culpdo INTEGER,
+     id_gasto_culpado INTEGER,
      data_estouro DATE,
      valor_passado DECIMAL(10,2)
-)
+);
 
-    DELIMITER //
+DELIMITER //
 
 CREATE PROCEDURE EncontrarEstouroPlanejamento(IN p_id_planejamento INTEGER)
 BEGIN

@@ -5,7 +5,7 @@ CREATE TABLE LogGasto (
     id_gasto_excluido INTEGER,
     valor_antigo DECIMAL(10,2),
     data_modificacao DATETIME DEFAULT CURRENT_TIMESTAMP
-)
+);
 
 DELIMITER //
 
@@ -19,10 +19,7 @@ END //
 
 DELIMITER ;
 
-
-
-
-
+/*----------------------------------------------------------------------------------------------*/
 
 DELIMITER //
 

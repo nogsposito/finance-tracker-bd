@@ -1,4 +1,4 @@
 package model;
 
-public class PlanejamentoFinanceiro {
+public class Planejamento {
 }

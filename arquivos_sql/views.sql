@@ -16,6 +16,8 @@ JOIN Estabelecimento e
     ON g.id_estabelecimento = e.id_estabelecimento
 WHERE g.valor > 100;
 
+/*----------------------------------------------------------------------------------------------*/
+
 CREATE VIEW vw_total_gastos_usuario AS
 SELECT 
     u.id_usuario,

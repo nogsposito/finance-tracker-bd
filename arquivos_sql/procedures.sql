@@ -1,3 +1,5 @@
+USE app_financeiro;
+
 DELIMITER $$
 
 CREATE PROCEDURE sp_atualizar_limite_planejamento(

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+    <file url="file://$PROJECT_DIR$/arquivos_sql/funcoes.sql" value="94fa2d5b-c7bf-4528-8048-ba58b66c0569" />
+    <file url="file://$PROJECT_DIR$/arquivos_sql/procedures.sql" value="94fa2d5b-c7bf-4528-8048-ba58b66c0569" />
+    <file url="file://$PROJECT_DIR$/src/dao/UsuarioDAO.java" value="94fa2d5b-c7bf-4528-8048-ba58b66c0569" />
+  </component>
+</project>

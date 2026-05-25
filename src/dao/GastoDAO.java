@@ -5,6 +5,10 @@ import util.Conexao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GastoDAO {
 
@@ -29,6 +33,40 @@ public class GastoDAO {
         } catch (Exception ex) {
             throw new RuntimeException("Erro ao inserir gasto: " + ex.getMessage(), ex);
         }
+    }
+
+    public List<Gasto> listar() {
+        List<Gasto> gastos = new ArrayList<>();
+        String sql = "SELECT * FROM Gasto";
+
+        try (Connection conn = Conexao.conectar();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                Gasto g = new Gasto();
+                g.setId(rs.getInt("id_gasto"));
+                g.setValor(rs.getDouble("valor"));
+                g.setDescricao(rs.getString("descricao"));
+                g.setData(rs.getDate("data"));
+                g.setIdUsuario(rs.getInt("id_usuario"));
+
+                // Tratamento especial para id_planejamento pois ele permite null no banco
+                int idPlan = rs.getInt("id_planejamento");
+                if (!rs.wasNull()) {
+                    g.setIdPlanejamento(idPlan);
+                }
+
+                g.setIdEstabelecimento(rs.getInt("id_estabelecimento"));
+                g.setIdCategoria(rs.getInt("id_categoria"));
+                g.setIdFormaPagamento(rs.getInt("id_forma_pagamento"));
+
+                gastos.add(g);
+            }
+        } catch (SQLException e) {
+            System.err.println("Erro ao listar gastos: " + e.getMessage());
+        }
+        return gastos;
     }
 
     public void atualizar(Gasto gasto) {

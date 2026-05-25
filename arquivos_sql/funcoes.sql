@@ -1,3 +1,5 @@
+USE app_financeiro;
+
 DELIMITER $$
 
 CREATE FUNCTION fn_total_gasto_usuario(p_id_usuario INT)

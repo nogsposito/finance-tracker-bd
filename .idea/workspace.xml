@@ -5,25 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4faa991c-bfb5-4d0e-bf91-76653a9876b0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/94fa2d5b-c7bf-4528-8048-ba58b66c0569.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/94fa2d5b-c7bf-4528-8048-ba58b66c0569/storage_v2/_src_/schema/app_financeiro.Ku-cIQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/94fa2d5b-c7bf-4528-8048-ba58b66c0569/storage_v2/_src_/schema/app_financeiro.Ku-cIQ.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/94fa2d5b-c7bf-4528-8048-ba58b66c0569/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/94fa2d5b-c7bf-4528-8048-ba58b66c0569/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/94fa2d5b-c7bf-4528-8048-ba58b66c0569/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/94fa2d5b-c7bf-4528-8048-ba58b66c0569/storage_v2/_src_/schema/sys.zb4BAA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/data_sources_history.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/94fa2d5b-c7bf-4528-8048-ba58b66c0569.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/94fa2d5b-c7bf-4528-8048-ba58b66c0569.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/94fa2d5b-c7bf-4528-8048-ba58b66c0569/storage_v2/_src_/schema/app_financeiro.Ku-cIQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/94fa2d5b-c7bf-4528-8048-ba58b66c0569/storage_v2/_src_/schema/app_financeiro.Ku-cIQ.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_sql/indexes.sql" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_sql/indexes.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arquivos_sql/funcoes.sql" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_sql/funcoes.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/arquivos_sql/procedures.sql" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_sql/procedures.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_sql/triggers.sql" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_sql/triggers.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_sql/views.sql" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_sql/views.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/CategoriaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/CategoriaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/GastoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/GastoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/PlanejamentoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/PlanejamentoDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/UsuarioDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Categoria.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Planejamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Planejamento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +25,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="38" />
+    <option name="cachedIndexableFilesCount" value="45" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -121,6 +115,8 @@
       <workItem from="1779319067919" duration="493000" />
       <workItem from="1779564951292" duration="1630000" />
       <workItem from="1779716029581" duration="539000" />
+      <workItem from="1779732031357" duration="54000" />
+      <workItem from="1779732138434" duration="5726000" />
     </task>
     <servers />
   </component>

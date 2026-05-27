@@ -5,19 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4faa991c-bfb5-4d0e-bf91-76653a9876b0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/view/TelaPrincipal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/view/TelaRelatorios.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/94fa2d5b-c7bf-4528-8048-ba58b66c0569.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/94fa2d5b-c7bf-4528-8048-ba58b66c0569.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/94fa2d5b-c7bf-4528-8048-ba58b66c0569/storage_v2/_src_/schema/app_financeiro.Ku-cIQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/94fa2d5b-c7bf-4528-8048-ba58b66c0569/storage_v2/_src_/schema/app_financeiro.Ku-cIQ.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_sql/funcoes.sql" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_sql/funcoes.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/arquivos_sql/procedures.sql" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_sql/procedures.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arquivos_sql/criacao.sql" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_sql/criacao.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/arquivos_sql/insercao.sql" beforeDir="false" afterPath="$PROJECT_DIR$/arquivos_sql/insercao.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/CategoriaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/CategoriaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/GastoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/GastoDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dao/PlanejamentoDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/PlanejamentoDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/UsuarioDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/UsuarioDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/Categoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Categoria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Planejamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Planejamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/TelaCategoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/TelaCategoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/TelaGasto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/TelaGasto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/TelaPlanejamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/TelaPlanejamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/TelaUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/TelaUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/CategoriaDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/CategoriaDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/dao/PlanejamentoDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/PlanejamentoDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/model/Categoria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/model/Categoria.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/TelaCategoria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/TelaCategoria.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/TelaGasto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/TelaGasto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/TelaPlanejamento.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/TelaPlanejamento.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/TelaUsuario.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/TelaUsuario.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +35,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="45" />
+    <option name="cachedIndexableFilesCount" value="47" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -58,6 +68,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TelaPrincipal.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
@@ -89,7 +100,7 @@
     ]
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="finance-tracker-bd" />
@@ -97,9 +108,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TelaPrincipal" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.TelaPrincipal" />
+      <module name="finance-tracker-bd" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.TelaPrincipal" />
       </list>
     </recent_temporary>
   </component>
@@ -117,6 +142,9 @@
       <workItem from="1779716029581" duration="539000" />
       <workItem from="1779732031357" duration="54000" />
       <workItem from="1779732138434" duration="5726000" />
+      <workItem from="1779834108306" duration="4332000" />
+      <workItem from="1779890602595" duration="2682000" />
+      <workItem from="1779911171196" duration="7042000" />
     </task>
     <servers />
   </component>

@@ -7,13 +7,15 @@ public class Categoria {
     private int idCategoria;
     private String nome;
     private String descricao;
+    private Integer idCategoriaPai;
 
     public Categoria(){}
 
-    public Categoria(int idCategoria, String nome, String descricao) {
+    public Categoria(int idCategoria, String nome, String descricao, Integer idCategoriaPai) {
         this.idCategoria = idCategoria;
         this.nome = nome;
         this.descricao = descricao;
+        this.idCategoriaPai = idCategoriaPai;
     }
 
     public int getIdCategoria() { return idCategoria; }
@@ -24,5 +26,9 @@ public class Categoria {
 
     public String getDescricao() { return descricao; }
     public void setDescricao(String descricao) { this.descricao = descricao; }
+
+    public Integer getIdCategoriaPai() { return idCategoriaPai; }
+    public void setIdCategoriaPai(Integer idCategoriaPai) { this.idCategoriaPai = idCategoriaPai; }
+
 }
 

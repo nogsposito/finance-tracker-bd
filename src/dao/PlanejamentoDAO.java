@@ -11,22 +11,33 @@ public class PlanejamentoDAO {
 
     public void inserir(Planejamento plan) {
 
-        String sql = "INSERT INTO PlanejamentoFinanceiro (id_planejamento, nome, valor_limite, data_inicio, data_fim, id_usuario) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO PlanejamentoFinanceiro ( nome, valor_limite, data_inicio, data_fim, id_usuario) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection conn = Conexao.conectar();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setInt(1, plan.getIdPlanejamento());
-            stmt.setString(2, plan.getNome());
-            stmt.setDouble(3, plan.getValorLimite());
-            stmt.setDate(4, new java.sql.Date(plan.getDataInicio().getTime()));
-            stmt.setDate(5, new java.sql.Date(plan.getDataFim().getTime()));
-            stmt.setInt(6, plan.getIdUsuario());
+            stmt.setString(1, plan.getNome());
+            stmt.setDouble(2, plan.getValorLimite());
+
+            if (plan.getDataInicio() != null) {
+                stmt.setDate(3, new java.sql.Date(plan.getDataInicio().getTime()));
+            } else {
+                stmt.setNull(3, java.sql.Types.DATE);
+            }
+
+            if (plan.getDataFim() != null) {
+                stmt.setDate(4, new java.sql.Date(plan.getDataFim().getTime()));
+            } else {
+                stmt.setNull(4, java.sql.Types.DATE);
+            }
+
+            stmt.setInt(5, plan.getIdUsuario());
 
             stmt.execute();
             System.out.println("Planejamento salvo com sucesso!");
         } catch (SQLException e) {
             System.err.println("Erro ao inserir planejamento: " + e.getMessage());
+            throw new RuntimeException("Erro no banco: " + e.getMessage());
         }
     }
 
@@ -62,8 +73,19 @@ public class PlanejamentoDAO {
 
             stmt.setString(1, plan.getNome());
             stmt.setDouble(2, plan.getValorLimite());
-            stmt.setDate(3, new java.sql.Date(plan.getDataInicio().getTime()));
-            stmt.setDate(4, new java.sql.Date(plan.getDataFim().getTime()));
+
+            if (plan.getDataInicio() != null) {
+                stmt.setDate(3, new java.sql.Date(plan.getDataInicio().getTime()));
+            } else {
+                stmt.setNull(3, java.sql.Types.DATE);
+            }
+
+            if (plan.getDataFim() != null) {
+                stmt.setDate(4, new java.sql.Date(plan.getDataFim().getTime()));
+            } else {
+                stmt.setNull(4, java.sql.Types.DATE);
+            }
+
             stmt.setInt(5, plan.getIdUsuario());
             stmt.setInt(6, plan.getIdPlanejamento());
 

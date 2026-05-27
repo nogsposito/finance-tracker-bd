@@ -13,9 +13,8 @@ import java.util.List;
 public class CategoriaDAO {
 
     public void inserir(Categoria categoria) {
-        String sql = "INSERT INTO Categoria (id_categoria, nome, descricao) VALUES (?, ?, ?)";
+        String sql = "INSERT INTO Categoria (id_categoria, nome, descricao, id_categoria_pai) VALUES (?, ?, ?, ?)";
 
-        // Alterado para usar o Conexao.conectar() baseado no seu util.Conexao
         try (Connection conn = Conexao.conectar();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -23,11 +22,18 @@ public class CategoriaDAO {
             stmt.setString(2, categoria.getNome());
             stmt.setString(3, categoria.getDescricao());
 
+            if (categoria.getIdCategoriaPai() != null) {
+                stmt.setInt(4, categoria.getIdCategoriaPai());
+            } else {
+                stmt.setNull(4, java.sql.Types.INTEGER);
+            }
+
             stmt.execute();
             System.out.println("Categoria salva com sucesso!");
 
         } catch (SQLException e) {
             System.err.println("Erro ao inserir categoria: " + e.getMessage());
+            throw new RuntimeException("Erro no banco: " + e.getMessage());
         }
     }
 
@@ -46,6 +52,10 @@ public class CategoriaDAO {
                 c.setIdCategoria(rs.getInt("id_categoria"));
                 c.setNome(rs.getString("nome"));
                 c.setDescricao(rs.getString("descricao"));
+                int idPai = rs.getInt("id_categoria_pai");
+                if (!rs.wasNull()) {
+                    c.setIdCategoriaPai(idPai);
+                }
                 categorias.add(c);
             }
 
@@ -66,6 +76,11 @@ public class CategoriaDAO {
 
             stmt.setString(1, categoria.getNome());
             stmt.setString(2, categoria.getDescricao());
+            if (categoria.getIdCategoriaPai() != null) {
+                stmt.setInt(3, categoria.getIdCategoriaPai());
+            } else {
+                stmt.setNull(3, java.sql.Types.INTEGER);
+            }
             stmt.setInt(3, categoria.getIdCategoria());
 
             stmt.execute();
@@ -78,7 +93,7 @@ public class CategoriaDAO {
     public void deletar(int idCategoria) {
         String sql = "DELETE FROM Categoria WHERE id_categoria = ?";
         try (Connection conn = Conexao.conectar();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setInt(1, idCategoria);
             stmt.execute();
         } catch (SQLException e) {

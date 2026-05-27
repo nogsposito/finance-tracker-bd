@@ -2,20 +2,20 @@ CREATE DATABASE app_financeiro;
 USE app_financeiro;
 
 CREATE TABLE Usuario (
-    id_usuario INTEGER PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(100) NOT NULL,
-    senha VARCHAR(100) NOT NULL,
-    data_cadastro DATE DEFAULT (CURRENT_DATE)
+     id_usuario INTEGER PRIMARY KEY AUTO_INCREMENT,
+     nome VARCHAR(100) NOT NULL,
+     senha VARCHAR(100) NOT NULL,
+     data_cadastro DATE DEFAULT (CURRENT_DATE)
 );
 
 CREATE TABLE Email (
-    endereco_email VARCHAR(150) PRIMARY KEY,
-    id_usuario INTEGER,
-    
-    FOREIGN KEY (id_usuario)
-        REFERENCES Usuario(id_usuario)
-        ON DELETE SET NULL
-        ON UPDATE CASCADE
+     endereco_email VARCHAR(150) PRIMARY KEY,
+     id_usuario INTEGER,
+
+     FOREIGN KEY (id_usuario)
+         REFERENCES Usuario(id_usuario)
+         ON DELETE SET NULL
+         ON UPDATE CASCADE
 );
 
 CREATE TABLE Telefone (
@@ -28,7 +28,7 @@ CREATE TABLE Telefone (
 );
 
 CREATE TABLE Categoria (
-    id_categoria INTEGER PRIMARY KEY,
+    id_categoria INTEGER PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL UNIQUE,
     descricao VARCHAR(255),
     id_categoria_pai INTEGER,
@@ -39,14 +39,14 @@ CREATE TABLE Categoria (
 );
 
 CREATE TABLE Localidade (
-    id_localidade INTEGER PRIMARY KEY,
+    id_localidade INTEGER PRIMARY KEY AUTO_INCREMENT,
     pais VARCHAR(50) NOT NULL,
     estado VARCHAR(50) NOT NULL,
     cidade VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Estabelecimento (
-    id_estabelecimento INTEGER PRIMARY KEY,
+    id_estabelecimento INTEGER PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
     tipo VARCHAR(50),
     id_localidade INTEGER NOT NULL,
@@ -57,12 +57,12 @@ CREATE TABLE Estabelecimento (
 );
 
 CREATE TABLE FormaPagamento (
-    id_forma_pagamento INTEGER PRIMARY KEY,
+    id_forma_pagamento INTEGER PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(50) NOT NULL UNIQUE
 );
 
 CREATE TABLE CartaoCredito (
-    id_forma_pagamento INTEGER PRIMARY KEY,
+    id_forma_pagamento INTEGER PRIMARY KEY AUTO_INCREMENT,
 
     FOREIGN KEY (id_forma_pagamento)
         REFERENCES FormaPagamento(id_forma_pagamento)
@@ -70,7 +70,7 @@ CREATE TABLE CartaoCredito (
 );
 
 CREATE TABLE PlanejamentoFinanceiro (
-    id_planejamento INTEGER PRIMARY KEY,
+    id_planejamento INTEGER PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
     valor_limite DECIMAL(10,2) NOT NULL CHECK (valor_limite >= 0),
     data_inicio DATE NOT NULL,
@@ -83,7 +83,7 @@ CREATE TABLE PlanejamentoFinanceiro (
 );
 
 CREATE TABLE PlanejamentoFinanceiroCategoria (
-    id_planejamento INTEGER,
+    id_planejamento INTEGER AUTO_INCREMENT,
     id_categoria INTEGER,
     limite_categoria DECIMAL(10,2) NOT NULL CHECK (limite_categoria >= 0),
 
@@ -98,7 +98,7 @@ CREATE TABLE PlanejamentoFinanceiroCategoria (
 );
 
 CREATE TABLE MetaFinanceira (
-    id_meta INTEGER PRIMARY KEY,
+    id_meta INTEGER PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
     descricao VARCHAR(255),
     valor_atual DECIMAL(10,2) DEFAULT 0 CHECK (valor_atual >= 0),
@@ -139,7 +139,7 @@ CREATE TABLE Gasto (
 );
 
 CREATE TABLE Parcela (
-    id_parcela INTEGER PRIMARY KEY,
+    id_parcela INTEGER PRIMARY KEY AUTO_INCREMENT,
     numero_parcela INTEGER NOT NULL CHECK (numero_parcela > 0),
     valor DECIMAL(10,2) NOT NULL CHECK (valor > 0),
     data_vencimento DATE NOT NULL,

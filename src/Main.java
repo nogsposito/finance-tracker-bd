@@ -1,8 +1,7 @@
-import view.TelaGasto;
-import view.TelaUsuario;
+import view.*;
 
 public class Main {
 	public static void main(String[] args) {
-		new TelaUsuario().setVisible(true);
+		new TelaPrincipal().setVisible(true);
 	}
 }
